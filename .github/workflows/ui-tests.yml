@@ -55,3 +55,11 @@ jobs:
           name: logs-${{ matrix.browser }}
           path: target/logs
           if-no-files-found: ignore
+
+      - name: Publish Test Results
+        if: always()
+        uses: dorny/test-reporter@v1
+        with:
+          name: UI Tests (${{ matrix.browser }})
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
