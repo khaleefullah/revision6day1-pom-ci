@@ -1,13 +1,14 @@
 package testcases;
 
+import java.util.Hashtable;
+
+import org.testng.annotations.Test;
+
 import base.BaseTest;
 import core.DriverFactory;
 import dataprovider.TestDataProvider;
-import pages.*;
-
-import org.testng.Assert;
-import org.testng.annotations.*;
-import java.util.Hashtable;
+import pages.HomePage;
+import pages.WinterToursPage;
 
 public class WinterToursTest extends BaseTest{
 	
