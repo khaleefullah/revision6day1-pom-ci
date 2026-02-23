@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+	<!-- Project root property -->
+	<Properties>
+		<Property name="LOG_DIR">${sys:user.dir}/target/logs</Property>
+	</Properties>
+
+	<Appenders>
+
+		<File name="AppLog" fileName="${LOG_DIR}/application.log"
+			append="false">
+			<PatternLayout pattern="%d %p %c [%t] %m%n" />
+		</File>
+
+		<File name="SeleniumLog" fileName="${LOG_DIR}/selenium.log"
+			append="true">
+			<PatternLayout pattern="%d %p %c [%t] %m%n" />
+		</File>
+
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout
+				pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+
+	</Appenders>
+
+	<Loggers>
+
+		<Logger name="com.revision" level="debug" additivity="false">
+			<AppenderRef ref="AppLog" />
+		</Logger>
+
+		<Logger name="org.openqa.selenium" level="debug"
+			additivity="false">
+			<AppenderRef ref="SeleniumLog" />
+		</Logger>
+
+		<Logger name="com" level="info" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Root level="info">
+			<AppenderRef ref="Console" />
+			<AppenderRef ref="AppLog" />
+			<AppenderRef ref="SeleniumLog" />
+		</Root>
+
+	</Loggers>
+
+</Configuration>
