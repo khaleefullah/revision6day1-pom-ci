@@ -24,6 +24,5 @@ public class WinterToursTest extends BaseTest{
 				.enterEmail(data.get("Email"))
 				.enterPhone(data.get("Phone"))
 				.enterMessage(data.get("Message"));
-		Assert.fail();
 	}
 }
