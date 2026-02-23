@@ -12,9 +12,15 @@ public class HomePage extends BasePage {
 	}
 
 	private By winterToursMenu = By.linkText("Alaska Winter Tours");
+	private By summerToursMenu = By.linkText("Summer Tours");
 
 	public WinterToursPage openWinterToursPage() {
 		waitAndClick(winterToursMenu);
 		return new WinterToursPage(driver);
+	}
+
+	public SummerToursPage openSummerToursPage() {
+		waitAndClick(summerToursMenu);
+		return new SummerToursPage(driver);
 	}
 }
