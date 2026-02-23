@@ -22,3 +22,23 @@ jobs:
 
       - name: Run tests
         run: mvn -B clean test -Dbrowser=chrome -Dheadless=true
+
+      - name: Upload Extent Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: extent-report
+          path: target/extent-report
+
+      - name: Upload Screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots
+          path: target/screenshots
+          if-no-files-found: ignore
+
+      - name: Upload Logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: logs
+          path: target/logs
+          if-no-files-found: ignore
