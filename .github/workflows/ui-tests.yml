@@ -35,6 +35,7 @@ jobs:
         run: mvn -B clean test -Dbrowser=${{ matrix.browser }} -Dheadless=true
 
       - name: Upload Extent Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: extent-report-${{ matrix.browser }}
